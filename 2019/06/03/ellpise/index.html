@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="css,ellpise,">
 
 
 
@@ -86,17 +86,23 @@
 
 
 
-<meta name="description" content="好的代码像粥一样，都是用时间熬出来的">
-<meta name="keywords" content="前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的城市下雨了">
-<meta property="og:url" content="https://mongofeng.github.io/archives/2019/05/index.html">
+<meta name="description" content="前言前端开发中文本溢出是一个非常常见的场景，如果在编程中没有对这部分进行处理，很可能会出现因为文本太长影响整体视觉效果或前端布局的情况。因此，对于有可能出现文本溢出的地方，我们需要对他们进行一些处理。当然，单纯地处理溢出很简单，如果要结合 Tooltip 做一些略复杂的交互显示，可能需要考虑更多的内容，接下来我们来对这些内容逐步的进行探讨： 实现文本溢出省略的处理方案目前而言，常见的处理方案可能分">
+<meta name="keywords" content="css,ellpise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文本溢出与 Tooltip，如何更好的处理二者">
+<meta property="og:url" content="https://mongofeng.github.io/2019/06/03/ellpise/index.html">
 <meta property="og:site_name" content="我的城市下雨了">
-<meta property="og:description" content="好的代码像粥一样，都是用时间熬出来的">
+<meta property="og:description" content="前言前端开发中文本溢出是一个非常常见的场景，如果在编程中没有对这部分进行处理，很可能会出现因为文本太长影响整体视觉效果或前端布局的情况。因此，对于有可能出现文本溢出的地方，我们需要对他们进行一些处理。当然，单纯地处理溢出很简单，如果要结合 Tooltip 做一些略复杂的交互显示，可能需要考虑更多的内容，接下来我们来对这些内容逐步的进行探讨： 实现文本溢出省略的处理方案目前而言，常见的处理方案可能分">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://mongofeng.github.io/images/css/ellpise/1.png">
+<meta property="og:image" content="https://mongofeng.github.io/images/css/ellpise/2.png">
+<meta property="og:image" content="https://mongofeng.github.io/images/css/ellpise/3.png">
+<meta property="og:image" content="https://mongofeng.github.io/images/css/ellpise/4.png">
+<meta property="og:updated_time" content="2019-06-03T07:27:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的城市下雨了">
-<meta name="twitter:description" content="好的代码像粥一样，都是用时间熬出来的">
+<meta name="twitter:title" content="文本溢出与 Tooltip，如何更好的处理二者">
+<meta name="twitter:description" content="前言前端开发中文本溢出是一个非常常见的场景，如果在编程中没有对这部分进行处理，很可能会出现因为文本太长影响整体视觉效果或前端布局的情况。因此，对于有可能出现文本溢出的地方，我们需要对他们进行一些处理。当然，单纯地处理溢出很简单，如果要结合 Tooltip 做一些略复杂的交互显示，可能需要考虑更多的内容，接下来我们来对这些内容逐步的进行探讨： 实现文本溢出省略的处理方案目前而言，常见的处理方案可能分">
+<meta name="twitter:image" content="https://mongofeng.github.io/images/css/ellpise/1.png">
 
 
 
@@ -126,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://mongofeng.github.io/archives/2019/05/">
+  <link rel="canonical" href="https://mongofeng.github.io/2019/06/03/ellpise/">
 
 
 
 
 
-  <title>归档 | 我的城市下雨了</title>
+  <title>文本溢出与 Tooltip，如何更好的处理二者 | 我的城市下雨了</title>
   
 
 
@@ -151,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://mongofeng.github.io/blog/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -289,72 +295,283 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mongofeng.github.io/2019/06/03/ellpise/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangpu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的城市下雨了">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/23/memory/" itemprop="url">
-              
-                <span itemprop="name">4类 JavaScript 内存泄漏及如何避免</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">文本溢出与 Tooltip，如何更好的处理二者</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-23T09:58:15+08:00" content="2019-05-23">
-          05-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T15:27:55+08:00">
+                2019-06-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前端开发中文本溢出是一个非常常见的场景，如果在编程中没有对这部分进行处理，很可能会出现因为文本太长影响整体视觉效果或前端布局的情况。因此，对于有可能出现文本溢出的地方，我们需要对他们进行一些处理。当然，单纯地处理溢出很简单，如果要结合 Tooltip 做一些略复杂的交互显示，可能需要考虑更多的内容，接下来我们来对这些内容逐步的进行探讨：</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="文本溢出省略的处理方案"><a href="#文本溢出省略的处理方案" class="headerlink" title="文本溢出省略的处理方案"></a>文本溢出省略的处理方案</h4><p>目前而言，常见的处理方案可能分为以下几种情况，单行省略处理和多行省略，这部分的 CSS 方案在网上很容易能找得到。话不多少，先扔代码：</p>
+<ol>
+<li>单行省略</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心的部分是 <code>text-overflow: ellipsis;</code> 但是有几个需要注意的点：这个属性只对那些在<strong>块级元素</strong>溢出的内容有效，而且必须要与块级元素<strong>内联(inline)方向</strong>一致，所以我们还需要加上 <code>white-space: nowrap</code>, 并将 <code>overflow</code> 设置为 <code>hidden</code> 以使得 <code>text-overflow</code> 生效。</p>
+<ol>
+<li>多行省略</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  -webkit-line-clamp: 2;</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式实现的省略可以在文本超出规定行数时超出的部分按照 <code>...</code>，当时它也只适用于 webkit 内核的浏览器。非 webkit 内核的实现方案需要用伪元素或 <code>float</code> 的方式来实现，这里我们不做讨论，感兴趣的朋友可以参考<a href="https://github.com/happylindz/blog/issues/12" target="_blank" rel="noopener">这篇博客</a>。</p>
+<h4 id="Tooltip-结合-ellipsis"><a href="#Tooltip-结合-ellipsis" class="headerlink" title="Tooltip 结合 ellipsis"></a>Tooltip 结合 ellipsis</h4><p>关于 tooltip 的实现本文不做探讨，我们采用 Element 中的 Tooltip 作为示例进行演示：</p>
+<h5 id="阶段-1"><a href="#阶段-1" class="headerlink" title="阶段 1"></a>阶段 1</h5><p>首先来进行暴力拼接，将文本的全部内容直接进行 Tooltip 显示而不用管是否会触发超出省略：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-tooltip :content=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;ellipsis-item&quot;&gt;&#123;&#123; content &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/el-tooltip&gt;</span><br></pre></td></tr></table></figure>
+<p>实现的内容大概是这个样子的：<br><a href="/images/css/ellpise/1.png"><img src="/images/css/ellpise/1.png" alt="image"></a></p>
+<p>但是这显然不是一个很好的解决方案，对于那些并没有溢出的文本，每次 hover 上去时还会显示 Tooltip，实在是一种糟心的体验。因此我们需要对上面的内容进行一些优化。</p>
+<h5 id="阶段-2"><a href="#阶段-2" class="headerlink" title="阶段 2"></a>阶段 2</h5><p>这次我们要实现一个文本溢出时 hover 显示 Tooltip，不溢出时 hover 不显示的效果。但是我们在第一步文本溢出的配置中是用 css 来进行设置的，如何才能通过 JS 来控制什么显示 Tooltip 的时机呢？这就要从文本溢出的原理讲起了：</p>
+<p>我们知道，每一个 HTML 元素都具有：<code>clientHeight(clientWidth)</code>、<code>offsetHeight(offsetWidth)</code>、<code>scrollHeight(scrollWidth)</code>、<code>offsetTop(offsetLeft)</code>、<code>scrollTop(scrollLeft)</code> 五种类型的属性，他们分别表示：</p>
+<ul>
+<li><strong>clientHeight(clientWidth)</strong>: 对象内容的可视区的高度（宽度）。包括 padding 但不包括 border、水平滚动条、margin 的元素的高度(宽度）。<a href="https://www.w3.org/TR/cssom-view/#dom-e" target="_blank" rel="noopener">对于 inline 的元素这个属性一直是 0</a><br><a href="/images/css/ellpise/2.png"><img src="/images/css/ellpise/2.png" alt="image"></a></li>
+<li><strong>offsetHeight(offsetWidth)</strong>: 对象整体的实际高度（宽度）。包括 padding、border、水平滚动条，但不包括 margin 的元素的高度（宽度）。<a href="https://www.w3.org/TR/cssom-view/#dom-element-clientheight" target="_blank" rel="noopener">对于inline的元素这个属性一直是 0</a>，单位 px。<br><a href="/images/css/ellpise/3.png"><img src="/images/css/ellpise/3.png" alt="image"></a></li>
+<li><p><strong>scrollHeight(scrollWidth)</strong>: 对象的实际内容的高度（宽度）。当实际内容超出可视区时会通过出现滚动条，通过滚动条可以调节实际内容在可视区的显示部分。</p>
+</li>
+<li><p><strong>scrollTop(scrollLeft)</strong>: 在有滚动条时，滚动条向下（向右）滚动的距离也就是元素顶部（左侧）被遮住部分的高度（宽度）。</p>
+</li>
+<li><p><strong>offsetTop(offsetLeft)</strong>: 当前元素顶部（左侧边框）距离最近的<strong>定位父元素</strong>顶部（左侧边框）的距离。<br><a href="/images/css/ellpise/4.png"><img src="/images/css/ellpise/4.png" alt="image"></a></p>
+</li>
+</ul>
+<p>对于单行省略而言：当文本所在的块元素的实际宽度超过了可视区的宽度（即 <code>scrollWidth</code> 超过了 <code>clientWidth</code>)，那么就会被判定为文本超出，我们就可以看见熟悉的 <code>...</code> 了。</p>
+<p>同样的道理，对于多行省略而言：文本检测超长的方式并不是 <code>inline</code> 的方向，而是垂直方向，所以我们同理变换即可理解，也就是说，党文在所在快元素的实际高度超过了可视区的高度（即 <code>scrollHeight</code> 超过了 <code>clientHeight</code>），那么就会被判定为文本超出。</p>
+<p>根据以上部分的原理，我们可以很容易的实现文本超长 hover 时显示 tooltip，而不超长时候不作处理的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-tooltip v-if=&quot;showTooltip&quot; :content=&quot;content&quot;&gt;</span><br><span class="line">  &lt;div ref=&quot;content&quot; class=&quot;ellipsis-item&quot;&gt;&#123;&#123; content &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/el-tooltip&gt;</span><br><span class="line"></span><br><span class="line">&lt;div v-else ref=&quot;content&quot; class=&quot;ellipsis-item&quot;&gt;&#123;&#123; content &#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">this.showTooltip = this.$refs.content.offsetWidth &lt; this.$refs.content.scrollWidth || // 处理单行省略</span><br><span class="line">      this.$refs.name.offsetHeight &lt; this.$refs.name.scrollHeight; // 处理多行省略</span><br></pre></td></tr></table></figure>
+<p>所以一些看似比较复杂的应用场景其实都是基本的原理拼接而成的，我们在了解这些原理之后便可以举一反三玩出很多的花样来。就这么简单~</p>
+<p>参考资料：<br><a href="http://imweb.io/topic/57c5409e808fd2fb204eef52" target="_blank" rel="noopener">http://imweb.io/topic/57c5409e808fd2fb204eef52</a><br><a href="https://www.w3.org/TR/cssom-view" target="_blank" rel="noopener">https://www.w3.org/TR/cssom-view</a></p>
+
+      
     </div>
+    
+    
+    
+
+    
+    
+      <div>
+        
+<div style="text-align:center;color: #ccc;font-size:20px; padding-top: 20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+      </div>
+    
+
+    
+      
+        <div>
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/06/03/ellpise/">文本溢出与 Tooltip，如何更好的处理二者</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 yangpu 的个人博客">yangpu</a></p>
+  <p><span>发布时间:</span>2019年06月03日 - 15:27</p>
+  <p><span>最后更新:</span>2019年06月03日 - 15:27</p>
+  <p><span>原始链接:</span><a href="/2019/06/03/ellpise/" title="文本溢出与 Tooltip，如何更好的处理二者">https://mongofeng.github.io/2019/06/03/ellpise/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://mongofeng.github.io/2019/06/03/ellpise/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+        </div>
+      
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          
+            <a href="/tags/ellpise/" rel="tag"><i class="fa fa-tag"></i> ellpise</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/23/memory/" rel="next" title="4类 JavaScript 内存泄漏及如何避免">
+                <i class="fa fa-chevron-left"></i> 4类 JavaScript 内存泄漏及如何避免
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +579,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -382,8 +603,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +691,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文本溢出省略的处理方案"><span class="nav-number">2.1.</span> <span class="nav-text">文本溢出省略的处理方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tooltip-结合-ellipsis"><span class="nav-number">2.2.</span> <span class="nav-text">Tooltip 结合 ellipsis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#阶段-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">阶段 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阶段-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">阶段 2</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -604,6 +850,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
