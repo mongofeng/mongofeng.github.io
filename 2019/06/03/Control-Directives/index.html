@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="SassScript支持基本控制指令，仅在某些条件下包含样式，或者在变化时多次包含相同的样式。 请注意，控制指令是一项高级功能，不建议在日常样式的过程中使用。它们主要用于mixins，特别是像Compass这样的库的一部分，因此需要很大的灵活性。 @for该@for指令重复输出一组样式。对于每次重复，使用计数器变量来调整输出。该指令有两种形式： @for $var from &amp;lt;start&amp;g">
+<meta name="description" content="SassScript支持一些基本控制指令和表达式，比如仅在在某些条件下包含样式，或者包括相同的样式几次变化。 注意： 控制指令是一项高级功能，日常编写过程中并不常用到，主要在 mixins（混合）指令中使用，尤其是像Compass这样的库。 1.if()内置的if()函数可让您在一个条件处理分支并返回两种可能结果。它可以在任何脚本上下文中使用。if函数只判断相对应的一个参数并且返回 – 这使您可以">
 <meta name="keywords" content="sass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sass控制指令-循环&amp;条件">
+<meta property="og:title" content="控制指令和表达式（Control Directives &amp; Expressions）">
 <meta property="og:url" content="https://mongofeng.github.io/2019/06/03/Control-Directives/index.html">
 <meta property="og:site_name" content="我的城市下雨了">
-<meta property="og:description" content="SassScript支持基本控制指令，仅在某些条件下包含样式，或者在变化时多次包含相同的样式。 请注意，控制指令是一项高级功能，不建议在日常样式的过程中使用。它们主要用于mixins，特别是像Compass这样的库的一部分，因此需要很大的灵活性。 @for该@for指令重复输出一组样式。对于每次重复，使用计数器变量来调整输出。该指令有两种形式： @for $var from &amp;lt;start&amp;g">
+<meta property="og:description" content="SassScript支持一些基本控制指令和表达式，比如仅在在某些条件下包含样式，或者包括相同的样式几次变化。 注意： 控制指令是一项高级功能，日常编写过程中并不常用到，主要在 mixins（混合）指令中使用，尤其是像Compass这样的库。 1.if()内置的if()函数可让您在一个条件处理分支并返回两种可能结果。它可以在任何脚本上下文中使用。if函数只判断相对应的一个参数并且返回 – 这使您可以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-03T10:40:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sass控制指令-循环&amp;条件">
-<meta name="twitter:description" content="SassScript支持基本控制指令，仅在某些条件下包含样式，或者在变化时多次包含相同的样式。 请注意，控制指令是一项高级功能，不建议在日常样式的过程中使用。它们主要用于mixins，特别是像Compass这样的库的一部分，因此需要很大的灵活性。 @for该@for指令重复输出一组样式。对于每次重复，使用计数器变量来调整输出。该指令有两种形式： @for $var from &amp;lt;start&amp;g">
+<meta name="twitter:title" content="控制指令和表达式（Control Directives &amp; Expressions）">
+<meta name="twitter:description" content="SassScript支持一些基本控制指令和表达式，比如仅在在某些条件下包含样式，或者包括相同的样式几次变化。 注意： 控制指令是一项高级功能，日常编写过程中并不常用到，主要在 mixins（混合）指令中使用，尤其是像Compass这样的库。 1.if()内置的if()函数可让您在一个条件处理分支并返回两种可能结果。它可以在任何脚本上下文中使用。if函数只判断相对应的一个参数并且返回 – 这使您可以">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>sass控制指令-循环&条件 | 我的城市下雨了</title>
+  <title>控制指令和表达式（Control Directives & Expressions） | 我的城市下雨了</title>
   
 
 
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sass控制指令-循环&条件</h1>
+          <h1 class="post-title" itemprop="name headline">控制指令和表达式（Control Directives & Expressions）</h1>
         
 
         <div class="post-meta">
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  771
+                  1.2k
                 </span>
               
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -424,32 +424,40 @@
       
 
       
-        <p>SassScript支持基本控制指令，仅在某些条件下包含样式，或者在变化时多次包含相同的样式。</p>
-<p><strong>请注意，控制指令是一项高级功能，不建议在日常样式的过程中使用</strong>。它们主要用于<a href="http://sass.bootcss.com/docs/sass-reference/#mixins" target="_blank" rel="noopener">mixins</a>，特别是像<a href="http://compass-style.org/" target="_blank" rel="noopener">Compass</a>这样的库的一部分，因此需要很大的灵活性。</p>
-<h3 id="for"><a href="#for" class="headerlink" title="@for"></a><code>@for</code></h3><p>该<code>@for</code>指令重复输出一组样式。对于每次重复，使用计数器变量来调整输出。该指令有两种形式： <code>@for $var from &lt;start&gt; through &lt;end&gt;</code>和<code>@for $var from &lt;start&gt; to &lt;end&gt;</code>。注意关键字的区别<code>through</code>和<code>to</code>。<code>$var</code>可以是任何变量名称，如<code>$i</code>; <code>&lt;start&gt;</code>并且<code>&lt;end&gt;</code>是应该返回整数的SassScript表达式。</p>
-<p>该<code>@for</code>语句设置<code>$var</code>为指定范围内的每个连续数字，并且每次使用该值输出嵌套样式<code>$var</code>。对于具有以下形式<code>from ... through</code>，所述范围<em>包括</em>的值<code>&lt;start&gt;</code>和 <code>&lt;end&gt;</code>，但形式<code>from ... to</code>运行至<em>但不包括</em>的值 <code>&lt;end&gt;</code>。使用<code>through</code>语法，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@for $i from 1 through 3 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@for $i from 1 to 3 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: $i + em; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被编译为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.item-1 &#123;</span><br><span class="line">  width: 2em; &#125;</span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em; &#125;</span><br><span class="line">.item-3 &#123;</span><br><span class="line">  width: 6em; &#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">.item-1 &#123;</span><br><span class="line">  width: 1em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 2em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="each"><a href="#each" class="headerlink" title="@each"></a><code>@each</code></h3><p>该<code>@each</code>规则的形式<code>@each $var in &lt;list&gt;</code>。 <code>$var</code>可以是任何变量名，例如<code>$length</code>或<code>$name</code>，<code>&lt;list&gt;</code>是一个返回列表的SassScript表达式。</p>
-<p>该<code>@each</code>规则集<code>$var</code>列表中的每个项目，然后输出它包含使用该值的风格<code>$var</code>。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@each $animal in puma, sea-slug, egret, salamander &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被编译为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.puma-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/puma.png&apos;); &#125;</span><br><span class="line">.sea-slug-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/sea-slug.png&apos;); &#125;</span><br><span class="line">.egret-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/egret.png&apos;); &#125;</span><br><span class="line">.salamander-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/salamander.png&apos;); &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="while"><a href="#while" class="headerlink" title="@while"></a><code>@while</code></h3><p>该<code>@while</code>指令采用SassScript表达式并重复输出嵌套样式，直到语句求值为止<code>false</code>。这可以用来实现比<code>@for</code>语句更复杂的循环，尽管这很少是必要的。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line">@while $i &gt; 0 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">  $i: $i - 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被编译为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.item-6 &#123;</span><br><span class="line">  width: 12em; &#125;</span><br><span class="line"></span><br><span class="line">.item-4 &#123;</span><br><span class="line">  width: 8em; &#125;</span><br><span class="line"></span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em; &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="if"><a href="#if" class="headerlink" title="@if"></a><code>@if</code></h3><p>该<code>@if</code>指令需要SassScript表达和使用嵌套在它下面的样式，如果表达式返回以外的任何其他<code>false</code>或<code>null</code>：</p>
+        <p>SassScript支持一些基本控制指令和表达式，比如仅在在某些条件下包含样式，或者包括相同的样式几次变化。</p>
+<p><strong>注意：</strong> 控制指令是一项高级功能，日常编写过程中并不常用到，主要在 <a href="https://www.sasscss.com/docs/#mixins" target="_blank" rel="noopener">mixins（混合）</a>指令中使用，尤其是像<a href="http://compass-style.org/" target="_blank" rel="noopener">Compass</a>这样的库。</p>
+<h3 id="1-if"><a href="#1-if" class="headerlink" title="1.if()"></a>1.<code>if()</code></h3><p>内置的<code>if()</code>函数可让您在一个条件处理分支并返回两种可能结果。它可以在任何脚本上下文中使用。<code>if</code>函数只判断相对应的一个参数并且返回 – 这使您可以引用已经定义的或者可以计算的变量，否则将导致错误（例如，除以零）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(true, 1px, 2px) =&gt; 1px</span><br><span class="line">if(false, 1px, 2px) =&gt; 2px</span><br></pre></td></tr></table></figure>
+<h3 id="2-if"><a href="#2-if" class="headerlink" title="2.@if"></a>2.<code>@if</code></h3><p><code>@if</code> 指令需要一个SassScript表达和嵌套在它下面要使用的样式，如果表达式返回值不为 <code>false</code> 或者 <code>null</code> ，那么后面花括号中的内容就会返回：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  @if 1 + 1 == 2 &#123; border: 1px solid;  &#125;</span><br><span class="line">  @if 5 &lt; 3      &#123; border: 2px dotted; &#125;</span><br><span class="line">  @if null       &#123; border: 3px double; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被编译为：</p>
+<p>编译为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  border: 1px solid; &#125;</span><br></pre></td></tr></table></figure>
-<p>该<code>@if</code>声明后面可以跟几个<code>@else if</code>声明和一个<code>@else</code>声明。如果<code>@if</code>语句失败，<code>@else if</code>则按顺序尝试语句，直到成功或<code>@else</code>到达为止。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$type: monster;</span><br><span class="line">p &#123;</span><br><span class="line">  @if $type == ocean &#123;</span><br><span class="line">    color: blue;</span><br><span class="line">  &#125; @else if $type == matador &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125; @else if $type == monster &#123;</span><br><span class="line">    color: green;</span><br><span class="line">  &#125; @else &#123;</span><br><span class="line">    color: black;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>被编译为：</p>
+<p><code>@if</code> 语句后面可以跟多个<code>@else if</code>语句和一个 <code>@else</code> 语句。<br> 如果<code>@if</code>语句失败，Sass 将逐条尝试<code>@else if</code> 语句，直到有一个成功，或如果全部失败，那么会执行<code>@else</code>语句。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$type: monster;</span><br><span class="line">    p &#123;</span><br><span class="line">      @if $type == ocean &#123;</span><br><span class="line">        color: blue;</span><br><span class="line">      &#125; @else if $type == matador &#123;</span><br><span class="line">        color: red;</span><br><span class="line">      &#125; @else if $type == monster &#123;</span><br><span class="line">    color: green;</span><br><span class="line">  &#125; @else &#123;</span><br><span class="line">    color: black;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  color: green; &#125;</span><br></pre></td></tr></table></figure>
-<p>### </p>
-
+<h3 id="3-for"><a href="#3-for" class="headerlink" title="3.@for"></a>3.<code>@for</code></h3><p><code>@for</code>指令重复输出一组样式。对于每次重复，计数器变量用于调整输出结果。该指令有两种形式：<code>@for $var from &lt;start&gt; through &lt;end&gt;</code> 和 <code>@for $var from &lt;start&gt; to &lt;end&gt;</code>。注意关键字<code>through</code> 和 <code>to</code>的区别。<code>$var</code>可以是任何变量名，比如<code>$i</code>;<code>&lt;start&gt;</code> 和 <code>&lt;end&gt;</code>是应该返回整数的SassScript表达式。当<code>&lt;start&gt;</code>比<code>&lt;end&gt;</code>大的时候，计数器将递减，而不是增量。</p>
+<p><code>@for</code>语句将设置<code>$var</code>为指定的范围内每个连续的数值，并且每一次输出的嵌套样式中使用<code>$var</code>的值。对于<code>from ... through</code>的形式，范围<em>包括</em><code>&lt;start&gt;</code>和<code>&lt;end&gt;</code>的值，但<code>from ... to</code>的形式从<code>&lt;start&gt;</code>开始运行，<em>但不包括</em><code>&lt;end&gt;</code>的值。使用<code>through</code>语法，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@for $i from 1 through 3 &#123;</span><br><span class="line">      .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@for $i from 1 to 3 &#123;</span><br><span class="line">      .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.item-1 &#123;</span><br><span class="line">  width: 2em; &#125;</span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em; &#125;</span><br><span class="line">.item-3 &#123;</span><br><span class="line">  width: 6em; &#125;</span><br><span class="line">  </span><br><span class="line">.item-1 &#123;</span><br><span class="line">  width: 2em; &#125;</span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-each"><a href="#4-each" class="headerlink" title="4.@each"></a>4.<code>@each</code></h3><p><code>@each</code>指令通常格式是<code>@each $var in &lt;list or map&gt;</code>。<code>$var</code>可以是任何变量名，像<code>$length</code> 或者 <code>$name</code>，和<code>&lt;list or map&gt;</code>是一个返回列表（list）或 map 的 SassScript 表达式。</p>
+<p><code>@each</code> 规则将<code>$var</code>设置为列表（list）或 map 中的每个项目，输出样式中包含使用<code>$var</code>的值。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@each $animal in puma, sea-slug, egret, salamander &#123;</span><br><span class="line">      .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">        background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.puma-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/puma.png&apos;); &#125;</span><br><span class="line">.sea-slug-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/sea-slug.png&apos;); &#125;</span><br><span class="line">.egret-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/egret.png&apos;); &#125;</span><br><span class="line">.salamander-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/salamander.png&apos;); &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-1-多重赋值（Multiple-Assignment）"><a href="#4-1-多重赋值（Multiple-Assignment）" class="headerlink" title="4.1.多重赋值（Multiple Assignment）"></a>4.1.多重赋值（Multiple Assignment）</h4><p><code>@each</code>指令也可以使用多个变量，格式为<code>@each $var1,$var2, ... in &lt;list&gt;</code>。如果<code>&lt;list&gt;</code>是列表（list）中的列表，子列表中的每个元素被分配给各自的变量。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@each $animal, $color, $cursor in (puma, black, default),</span><br><span class="line">                                      (sea-slug, blue, pointer),</span><br><span class="line">                                      (egret, white, move) &#123;</span><br><span class="line">      .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">        background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">        border: 2px solid $color;</span><br><span class="line">        cursor: $cursor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.puma-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/puma.png&apos;);</span><br><span class="line">  border: 2px solid black;</span><br><span class="line">  cursor: default; &#125;</span><br><span class="line">.sea-slug-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/sea-slug.png&apos;);</span><br><span class="line">  border: 2px solid blue;</span><br><span class="line">  cursor: pointer; &#125;</span><br><span class="line">.egret-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/egret.png&apos;);</span><br><span class="line">  border: 2px solid white;</span><br><span class="line">  cursor: move; &#125;</span><br></pre></td></tr></table></figure>
+<p>因为<a href="https://www.sasscss.com/docs/#maps" target="_blank" rel="noopener">maps</a>被视为键值对的列表，所以多重赋值也可以很好的工作。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) &#123;</span><br><span class="line">  #&#123;$header&#125; &#123;</span><br><span class="line">        font-size: $size;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  font-size: 2em; &#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">  font-size: 1.5em; &#125;</span><br><span class="line">h3 &#123;</span><br><span class="line">  font-size: 1.2em; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-while"><a href="#5-while" class="headerlink" title="5.@while"></a>5.<code>@while</code></h3><p><code>@while</code> 指令重复输出嵌套样式，直到SassScript表达式返回结果为<code>false</code>。这可用于实现比<code>@for</code>语句更复杂的循环，只是很少会用到例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$i: 6;</span><br><span class="line">    @while $i &gt; 0 &#123;</span><br><span class="line">  .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125;</span><br><span class="line">      $i: $i - 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.item-6 &#123;</span><br><span class="line">  width: 12em; &#125;</span><br><span class="line"></span><br><span class="line">.item-4 &#123;</span><br><span class="line">  width: 8em; &#125;</span><br><span class="line"></span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em; &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -475,11 +483,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/06/03/Control-Directives/">sass控制指令-循环&条件</a></p>
+  <p><span>本文标题:</span><a href="/2019/06/03/Control-Directives/">控制指令和表达式（Control Directives & Expressions）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 yangpu 的个人博客">yangpu</a></p>
   <p><span>发布时间:</span>2019年06月03日 - 18:40</p>
   <p><span>最后更新:</span>2019年06月03日 - 18:40</p>
-  <p><span>原始链接:</span><a href="/2019/06/03/Control-Directives/" title="sass控制指令-循环&条件">https://mongofeng.github.io/2019/06/03/Control-Directives/</a>
+  <p><span>原始链接:</span><a href="/2019/06/03/Control-Directives/" title="控制指令和表达式（Control Directives & Expressions）">https://mongofeng.github.io/2019/06/03/Control-Directives/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://mongofeng.github.io/2019/06/03/Control-Directives/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -535,6 +543,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/05/CSS-Extensions/" rel="prev" title="CSS扩展 (CSS Extensions)">
+                CSS扩展 (CSS Extensions) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -613,7 +625,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -635,7 +647,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -684,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">1.</span> <span class="nav-text">@for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">2.</span> <span class="nav-text">@each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">3.</span> <span class="nav-text">@while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if"><span class="nav-number">4.</span> <span class="nav-text">@if</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-if"><span class="nav-number">1.</span> <span class="nav-text">1.if()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-if"><span class="nav-number">2.</span> <span class="nav-text">2.@if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-for"><span class="nav-number">3.</span> <span class="nav-text">3.@for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-each"><span class="nav-number">4.</span> <span class="nav-text">4.@each</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-多重赋值（Multiple-Assignment）"><span class="nav-number">4.1.</span> <span class="nav-text">4.1.多重赋值（Multiple Assignment）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-while"><span class="nav-number">5.</span> <span class="nav-text">5.@while</span></a></li></ol></div>
             
 
           </div>
@@ -718,7 +730,7 @@
     
       <span class="post-meta-item-text">全站字数&#58;</span>
     
-    <span title="全站字数">20.8k</span>
+    <span title="全站字数">28.2k</span>
   
 </div>
 

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="create-react-app,tslint,">
+  <meta name="keywords" content="sass,">
 
 
 
@@ -86,24 +86,18 @@
 
 
 
-<meta name="description" content="创建React和TypeScript项目现在创建React和TypeScript应用程序非常简单。在CRA 2.1 TypeScript之前，我们必须使用单独的脚本将TypeScript包含在我们的React应用程序中。从CRA 2.1开始，TypeScript支持就在框中。我们只需要安装npm 5.2或更高版本。 创建我们的项目让我们在我们选择的文件夹中运行以下命令，我们要在其中创建项目： 1n">
-<meta name="keywords" content="create-react-app,tslint">
+<meta name="description" content="混入(mixin)允许您定义可以在整个样式表中重复使用的样式，而避免了使用无语意的类（class），比如 .float-left。混入(mixin)还可以包含所有的CSS规则，以及任何其他在Sass文档中被允许使用的东西。他们甚至可以带arguments，引入变量，只需少量的混入(mixin)代码就能输出多样化的样式。 定义一个混入(mixin):@mixin（Defining a Mixin:">
+<meta name="keywords" content="sass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在create-react-app中搭配tslint">
-<meta property="og:url" content="https://mongofeng.github.io/2019/04/24/create-react-app-tslint/index.html">
+<meta property="og:title" content="混入指令 (Mixin Directives)">
+<meta property="og:url" content="https://mongofeng.github.io/2019/06/05/Mixins-Directives/index.html">
 <meta property="og:site_name" content="我的城市下雨了">
-<meta property="og:description" content="创建React和TypeScript项目现在创建React和TypeScript应用程序非常简单。在CRA 2.1 TypeScript之前，我们必须使用单独的脚本将TypeScript包含在我们的React应用程序中。从CRA 2.1开始，TypeScript支持就在框中。我们只需要安装npm 5.2或更高版本。 创建我们的项目让我们在我们选择的文件夹中运行以下命令，我们要在其中创建项目： 1n">
+<meta property="og:description" content="混入(mixin)允许您定义可以在整个样式表中重复使用的样式，而避免了使用无语意的类（class），比如 .float-left。混入(mixin)还可以包含所有的CSS规则，以及任何其他在Sass文档中被允许使用的东西。他们甚至可以带arguments，引入变量，只需少量的混入(mixin)代码就能输出多样化的样式。 定义一个混入(mixin):@mixin（Defining a Mixin:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.carlrippon.com/wp-content/uploads/2019/01/02-09-VSCode-TSLint-1024x174.png">
-<meta property="og:image" content="https://www.carlrippon.com/wp-content/uploads/2018/11/CRA-linting-error.png">
-<meta property="og:image" content="https://www.carlrippon.com/wp-content/uploads/2019/01/02-10-VSCode-Prettier-1024x208.png">
-<meta property="og:image" content="https://www.carlrippon.com/wp-content/uploads/2019/01/02-12-Prettier-FormatOnSave-1024x177.png">
-<meta property="og:image" content="https://www.carlrippon.com/wp-content/uploads/2018/11/CRA-running.png">
-<meta property="og:updated_time" content="2019-04-24T10:08:21.000Z">
+<meta property="og:updated_time" content="2019-06-05T07:28:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在create-react-app中搭配tslint">
-<meta name="twitter:description" content="创建React和TypeScript项目现在创建React和TypeScript应用程序非常简单。在CRA 2.1 TypeScript之前，我们必须使用单独的脚本将TypeScript包含在我们的React应用程序中。从CRA 2.1开始，TypeScript支持就在框中。我们只需要安装npm 5.2或更高版本。 创建我们的项目让我们在我们选择的文件夹中运行以下命令，我们要在其中创建项目： 1n">
-<meta name="twitter:image" content="https://www.carlrippon.com/wp-content/uploads/2019/01/02-09-VSCode-TSLint-1024x174.png">
+<meta name="twitter:title" content="混入指令 (Mixin Directives)">
+<meta name="twitter:description" content="混入(mixin)允许您定义可以在整个样式表中重复使用的样式，而避免了使用无语意的类（class），比如 .float-left。混入(mixin)还可以包含所有的CSS规则，以及任何其他在Sass文档中被允许使用的东西。他们甚至可以带arguments，引入变量，只需少量的混入(mixin)代码就能输出多样化的样式。 定义一个混入(mixin):@mixin（Defining a Mixin:">
 
 
 
@@ -133,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://mongofeng.github.io/2019/04/24/create-react-app-tslint/">
+  <link rel="canonical" href="https://mongofeng.github.io/2019/06/05/Mixins-Directives/">
 
 
 
 
 
-  <title>在create-react-app中搭配tslint | 我的城市下雨了</title>
+  <title>混入指令 (Mixin Directives) | 我的城市下雨了</title>
   
 
 
@@ -310,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mongofeng.github.io/2019/04/24/create-react-app-tslint/">
+    <link itemprop="mainEntityOfPage" href="https://mongofeng.github.io/2019/06/05/Mixins-Directives/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangpu">
@@ -327,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在create-react-app中搭配tslint</h1>
+          <h1 class="post-title" itemprop="name headline">混入指令 (Mixin Directives)</h1>
         
 
         <div class="post-meta">
@@ -339,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T18:08:21+08:00">
-                2019-04-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T15:28:34+08:00">
+                2019-06-05
               </time>
             
 
@@ -362,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index">
-                    <span itemprop="name">react</span>
+                  <a href="/categories/sass学习手记/" itemprop="url" rel="index">
+                    <span itemprop="name">sass学习手记</span>
                   </a>
                 </span>
 
@@ -393,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  919
+                  1.9k
                 </span>
               
 
@@ -409,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  8
                 </span>
               
             </div>
@@ -430,52 +424,63 @@
       
 
       
-        <h1 id="创建React和TypeScript项目"><a href="#创建React和TypeScript项目" class="headerlink" title="创建React和TypeScript项目"></a>创建React和TypeScript项目</h1><p>现在创建React和TypeScript应用程序非常简单。在CRA 2.1 TypeScript之前，我们必须使用单独的<a href="https://github.com/wmonk/create-react-app-typescript" target="_blank" rel="noopener">脚本</a>将TypeScript包含在我们的React应用程序中。从CRA 2.1开始，TypeScript支持就在框中。我们只需要安装npm 5.2或更高版本。</p>
-<h3 id="创建我们的项目"><a href="#创建我们的项目" class="headerlink" title="创建我们的项目"></a>创建我们的项目</h3><p>让我们在我们选择的文件夹中运行以下命令，我们要在其中创建项目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app app --typescript</span><br></pre></td></tr></table></figure>
-<ul>
-<li>该<code>npx</code>工具临时安装<code>create-react-app</code>npm包并使用它来创建我们的项目。整齐！</li>
-<li>我们选择调用我们的项目<strong>应用程序</strong>。</li>
-<li>我们还指定<code>--typescript</code>了一个位，告诉工具使用TypeScript设置项目。</li>
-</ul>
-<p>该工具将花费一分钟左右来创建我们的项目。</p>
-<h3 id="添加TSLint"><a href="#添加TSLint" class="headerlink" title="添加TSLint"></a>添加TSLint</h3><p>将<a href="https://palantir.github.io/tslint/" target="_blank" rel="noopener">TSLint</a>添加到React和TypeScript有助于我们使代码更具可读性和可维护性。遗憾的是，CRA在其设置中不包含此内容，因此，我们将通过在终端中运行以下命令来自行完成此操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd app</span><br><span class="line">npm install tslint tslint-react --save-dev</span><br></pre></td></tr></table></figure>
-<p>我们刚刚安装了TSLint作为开发依赖项以及React项目的一些标准linting规则。</p>
-<p>让我们通过添加一个与以下内容<code>tslint.json</code> 相同级别调用的文件来配置TSLint <code>package.json</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;extends&quot;: [&quot;tslint:latest&quot;, &quot;tslint-react&quot;],</span><br><span class="line">  &quot;linterOptions&quot;: &#123;&quot;exclude&quot;: [&quot;config/**/*.js&quot;, &quot;node_modules/**/*.ts&quot;, &quot;coverage/lcov-report/*.js&quot;]&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果我们希望随着TSLint的发展，linting规则更加稳定，我们可以使用tslint:recommended而不是tslint:latest。</p>
-<p>我们可以通过添加字段来覆盖我们想要的特定<a href="https://palantir.github.io/tslint/rules/" target="_blank" rel="noopener">规则</a><code>rules</code>。</p>
-<h3 id="添加TSLint-Visual-Studio代码扩展"><a href="#添加TSLint-Visual-Studio代码扩展" class="headerlink" title="添加TSLint Visual Studio代码扩展"></a>添加TSLint Visual Studio代码扩展</h3><p>该<strong>打字稿TSLint插件</strong>  VS代码扩展似乎是最流行的扩展，这些天。</p>
-<p><a href="https://www.carlrippon.com/wp-content/uploads/2019/01/02-09-VSCode-TSLint.png" target="_blank" rel="noopener"><img src="https://www.carlrippon.com/wp-content/uploads/2019/01/02-09-VSCode-TSLint-1024x174.png" alt="img"></a></p>
-<p>安装此插件后，我们需要启用它<code>tsconfig.json</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;compilerOptions&quot;: &#123;</span><br><span class="line">    ...,</span><br><span class="line">    &quot;plugins&quot;: [&#123;&quot;name&quot;: &quot;typescript-tslint-plugin&quot;&#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="修复App-tsx中的linting错误"><a href="#修复App-tsx中的linting错误" class="headerlink" title="修复App.tsx中的linting错误"></a>修复App.tsx中的linting错误</h3><p>现在我们的应用程序正在使用TSLint，我们在<code>App</code>需要修复的组件中遇到了一个小问题。</p>
-<p><img src="https://www.carlrippon.com/wp-content/uploads/2018/11/CRA-linting-error.png" alt="CRA掉毛错误"></p>
-<p>我们需要在<code>render</code>方法中添加访问修饰符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  public render() &#123;</span><br><span class="line">    return ( ... );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="添加自动格式"><a href="#添加自动格式" class="headerlink" title="添加自动格式"></a>添加自动格式</h3><p>一些与我们的代码格式有关的linting规则（例如语句末尾的半冒号）可以通过像<a href="https://prettier.io/" target="_blank" rel="noopener">Prettier</a>这样的工具自动处理。</p>
-<p>我们可以通过在终端中执行以下命令来安装Prettier：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install prettier --save-dev</span><br></pre></td></tr></table></figure>
-<p>为了让Prettier更好地使用TSLint，我们首先安装  tslint-config-prettier规则预设：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install tslint-config-prettier --save-dev</span><br></pre></td></tr></table></figure>
-<p>然后我们将其添加到tslint.json：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;  &quot;extends&quot;: [&quot;tslint:latest&quot;, &quot;tslint-react&quot;, &quot;tslint-config-prettier&quot;],  &quot;linterOptions&quot;: &#123;&quot;exclude&quot;: [&quot;config//*.js&quot;, &quot;node_modules//.ts&quot;, &quot;coverage/lcov-report/.js&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>我们在.prettierrc文件中指定我们想要的格式规则，该文件位于以下相同的级别package.json：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;printWidth&quot;: 80, &quot;singleQuote&quot;: true, &quot;semi&quot;: true, &quot;tabWidth&quot;: 2, &quot;trailingComma&quot;: &quot;all&quot;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="添加更漂亮的Visual-Studio代码扩展"><a href="#添加更漂亮的Visual-Studio代码扩展" class="headerlink" title="添加更漂亮的Visual Studio代码扩展"></a>添加更漂亮的Visual Studio代码扩展</h3><p>该<strong>更漂亮-代码格式化</strong>  VS代码扩展名是流行的扩展，这些天。</p>
-<p><a href="https://www.carlrippon.com/wp-content/uploads/2019/01/02-10-VSCode-Prettier.png" target="_blank" rel="noopener"><img src="https://www.carlrippon.com/wp-content/uploads/2019/01/02-10-VSCode-Prettier-1024x208.png" alt="img"></a></p>
-<p>通过勾选“ 用户设置”中的“ <strong>保存时格式”</strong>选项，我们可以让Prettier在Visual Studio代码中保存文件时应用格式：</p>
-<p><a href="https://www.carlrippon.com/wp-content/uploads/2019/01/02-12-Prettier-FormatOnSave.png" target="_blank" rel="noopener"><img src="https://www.carlrippon.com/wp-content/uploads/2019/01/02-12-Prettier-FormatOnSave-1024x177.png" alt="img"></a></p>
-<h3 id="运行应用程序"><a href="#运行应用程序" class="headerlink" title="运行应用程序"></a>运行应用程序</h3><p>像往常一样，我们可以通过在终端中输入以下命令来运行应用程序：</p>
-<p><code>npm start</code></p>
-<p><img src="https://www.carlrippon.com/wp-content/uploads/2018/11/CRA-running.png" alt="CRA正在运行"></p>
-<p>就是这样 - 我们现在有一个带有TSLint和Prettier的React和TypeScript项目！</p>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
-<li><a href="https://www.carlrippon.com/creating-a-react-and-typescript-project/" target="_blank" rel="noopener">Creating a React and TypeScript Project</a></li>
-<li><a href="https://juejin.im/post/5bac89aaf265da0afe62ebcb#heading-8" target="_blank" rel="noopener">搭建Typescript+React项目模板(5) — 团队规范</a></li>
-</ul>
-
+        <p>混入(mixin)允许您定义可以在整个样式表中重复使用的样式，而避免了使用无语意的类（class），比如 <code>.float-left</code>。混入(mixin)还可以包含所有的CSS规则，以及任何其他在Sass文档中被允许使用的东西。<br>他们甚至可以带<a href="https://www.sasscss.com/docs/#mixin-arguments" target="_blank" rel="noopener">arguments</a>，引入变量，只需少量的混入(mixin)代码就能输出多样化的样式。</p>
+<h3 id="定义一个混入-mixin-mixin（Defining-a-Mixin-mixin）"><a href="#定义一个混入-mixin-mixin（Defining-a-Mixin-mixin）" class="headerlink" title="定义一个混入(mixin):@mixin（Defining a Mixin: @mixin）"></a>定义一个混入(mixin):<code>@mixin</code>（Defining a Mixin: <code>@mixin</code>）</h3><p>混入(mixin)通过 <code>@mixin</code> 指令定义。在它后面跟混入的名称和任选的<a href="https://www.sasscss.com/docs/#mixin-arguments" target="_blank" rel="noopener">arguments（参数）</a>，以及混入的内容块。例如，<code>large-text</code>混入定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@mixin large-text &#123;</span><br><span class="line">  font: &#123;</span><br><span class="line">    family: Arial;</span><br><span class="line">    size: 20px;</span><br><span class="line">    weight: bold;</span><br><span class="line">  &#125;</span><br><span class="line">  color: #ff0000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>混入也可以包含选择器和属性的混合体，选择器中甚至可以包含<a href="https://www.sasscss.com/docs/#referencing_parent_selectors_" target="_blank" rel="noopener">parent references（父选择器）</a>。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@mixin clearfix &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  &amp;:after &#123;</span><br><span class="line">    content: &quot;.&quot;;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 0;</span><br><span class="line">    clear: both;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">  &#125;</span><br><span class="line">  * html &amp; &#123; height: 1px &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于历史原因，混入（mixin）的名字（和所有其他 Sass 标识符）可以互换连字符和下划线。例如，如果你定义了一个名为<code>add-column</code>的混入，你可以把它作为<code>add_column</code>，反之亦然。</p>
+<h3 id="引用混合样式-include-（Including-a-Mixin-include）"><a href="#引用混合样式-include-（Including-a-Mixin-include）" class="headerlink" title="引用混合样式:@include （Including a Mixin: @include）"></a>引用混合样式:<code>@include</code> （Including a Mixin: <code>@include</code>）</h3><p>使用 <code>@include</code> 指令可以将混入（mixin）引入到文档中。这需要一个混入的名称和可选的<a href="https://www.sasscss.com/docs/#mixin-arguments" target="_blank" rel="noopener">参数传递给它</a>，并包括由混入定义的当前规则的样式。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.page-title &#123;</span><br><span class="line">  @include large-text;</span><br><span class="line">  padding: 4px;</span><br><span class="line">  margin-top: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.page-title &#123;</span><br><span class="line">  font-family: Arial;</span><br><span class="line">  font-size: 20px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: #ff0000;</span><br><span class="line">  padding: 4px;</span><br><span class="line">  margin-top: 10px; &#125;</span><br></pre></td></tr></table></figure>
+<p>混入（mixin）也可以包含在任何规则的外（即，在文档的根）,只要它们不直接定义的任何属性或使用任何父选择器引用。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@mixin silly-links &#123;</span><br><span class="line">  a &#123;</span><br><span class="line">    color: blue;</span><br><span class="line">    background-color: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@include silly-links;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">  color: blue;</span><br><span class="line">  background-color: red; &#125;</span><br></pre></td></tr></table></figure>
+<p>混入（mixin）定义也可以包含其他的混入。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@mixin compound &#123;</span><br><span class="line">  @include highlighted-background;</span><br><span class="line">  @include header-text;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@mixin highlighted-background &#123; background-color: #fc0; &#125;</span><br><span class="line">@mixin header-text &#123; font-size: 20px; &#125;</span><br></pre></td></tr></table></figure>
+<p>混入可以包含自己。这行为不同于 Sass 3.3 之前的版本，以前混入递归是被禁止的。</p>
+<p>只定义后代选择器的混入可以安全地混入到文件的最顶层。</p>
+<h3 id="参数-Arguments"><a href="#参数-Arguments" class="headerlink" title="参数 (Arguments)"></a>参数 (Arguments)</h3><p>混入（mixin）可以用 SassScript 值作为参数，给定的参数被包括在混入（mixin）中并且作为为变量提供给混入（mixin）。</p>
+<p>当定义一个混入（mixin）的时候，参数被作为变量名，写到混入（mixin）名字后面的括号内，多个参数可以用逗号分隔。然后，当调用混入的时候，值通过对应的参数顺序被传递。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin sexy-border($color, $width) &#123;</span><br><span class="line">  border: &#123;</span><br><span class="line">    color: $color;</span><br><span class="line">        width: $width;</span><br><span class="line">    style: dashed;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p &#123; @include sexy-border(blue, 1in); &#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  border-color: blue;</span><br><span class="line">  border-width: 1in;</span><br><span class="line">  border-style: dashed; &#125;</span><br></pre></td></tr></table></figure>
+<p>混入（mixin）也可以使用普通的变量赋值语法为参数指定默认值。然后，当调用混入的时候，如果没有给参数赋值，则自动会使用默认值代替。 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin sexy-border($color, $width: 1in) &#123;</span><br><span class="line">  border: &#123;</span><br><span class="line">    color: $color;</span><br><span class="line">        width: $width;</span><br><span class="line">    style: dashed;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">p &#123; @include sexy-border(blue); &#125;</span><br><span class="line">h1 &#123; @include sexy-border(blue, 2in); &#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">  border-color: blue;</span><br><span class="line">  border-width: 1in;</span><br><span class="line">  border-style: dashed; &#125;</span><br><span class="line"></span><br><span class="line">h1 &#123;</span><br><span class="line">  border-color: blue;</span><br><span class="line">  border-width: 2in;</span><br><span class="line">  border-style: dashed; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="关键字参数-Keyword-Arguments"><a href="#关键字参数-Keyword-Arguments" class="headerlink" title="关键字参数 (Keyword Arguments)"></a>关键字参数 (Keyword Arguments)</h4><p>混入（mixin）在引入（<code>@include</code>指令）的时候也可以使用明确的关键字参数。例如，上面的例子可以写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p &#123; @include sexy-border($color: blue); &#125;</span><br><span class="line">    h1 &#123; @include sexy-border($color: blue, $width: 2in); &#125;</span><br></pre></td></tr></table></figure>
+<p>虽然这是不够简明，但是它可以使样式表更容易阅读。它给函数呈现了更加灵活的接口，它使多参数的混入更加容易调用。</p>
+<p>命名的参数可以按任何顺序进行传递，有默认值的参数可以省略。由于命名参数是变量名，下划线和连字符可以互换使用。</p>
+<h4 id="可变参数-Variable-Arguments"><a href="#可变参数-Variable-Arguments" class="headerlink" title="可变参数 (Variable Arguments)"></a>可变参数 (Variable Arguments)</h4><p>有时，不能确定一个混入（mixin）或者一个函数（function）使用多少个参数。例如，用于创建盒子阴影（box-shadow）的一个混入（mixin）可以采取任何数量的box-shadow作为参数。对于这些情况，Sass支持”可变参数”,参数在声明混入（mixin）或函数（function）结束的地方，所有剩余的参数打包成一个<a href="https://www.sasscss.com/docs/#lists" target="_blank" rel="noopener">列表（list）</a>。参数看起来就像普通参数一样，但后面跟随着<code>...</code>。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin box-shadow($shadows...) &#123;</span><br><span class="line">      -moz-box-shadow: $shadows;</span><br><span class="line">      -webkit-box-shadow: $shadows;</span><br><span class="line">      box-shadow: $shadows;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.shadows &#123;</span><br><span class="line">  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.shadows &#123;</span><br><span class="line">  -moz-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;</span><br><span class="line">  -webkit-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;</span><br><span class="line">  box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可变参数可以包含任何关键字参数传递给混入（mixin）或者函数（function）。这些可以使用<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#keywords-instance_method" target="_blank" rel="noopener"><code>keywords($args)</code>函数</a> 来访问，返回一个map，参数名称字符串（无<code>$</code>）和值的键值对。</p>
+<p>可变参数，也可以在调用（@include指令）一个混入（mixin）时使用。使用相同的语法，你可以扩展值的列表（list），以便每个值作为单独的参数传入，或扩展值的map，以使每个键值对作为一个关键字参数处理。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@mixin colors($text, $background, $border) &#123;</span><br><span class="line">      color: $text;</span><br><span class="line">      background-color: $background;</span><br><span class="line">      border-color: $border;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$values: #ff0000, #00ff00, #0000ff;</span><br><span class="line">    .primary &#123;</span><br><span class="line">      @include colors($values...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$value-map: (text: #00ff00, background: #0000ff, border: #ff0000);</span><br><span class="line">    .secondary &#123;</span><br><span class="line">      @include colors($value-map...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.primary &#123;</span><br><span class="line">  color: #ff0000;</span><br><span class="line">  background-color: #00ff00;</span><br><span class="line">  border-color: #0000ff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.secondary &#123;</span><br><span class="line">  color: #00ff00;</span><br><span class="line">  background-color: #0000ff;</span><br><span class="line">  border-color: #ff0000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以同时传递一个列表（list）和一个map参数，只要列表（list）在map上之前，比如<code>@include colors($values..., $map...)</code>。</p>
+<p>您可以使用可变参数来包装一个混入（mixin）并且添加额外的样式，而不改变混入（mixin）的参数签名。如果你这样做，关键字参数将通过包装的混入（mixin）直接传递。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@mixin wrapped-stylish-mixin($args...) &#123;</span><br><span class="line">      font-weight: bold;</span><br><span class="line">      @include stylish-mixin($args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.stylish &#123;</span><br><span class="line">  // The $width argument will get passed on to &quot;stylish-mixin&quot; as a keyword</span><br><span class="line">      @include wrapped-stylish-mixin(#00ff00, $width: 100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="传递内容块到混入-Passing-Content-Blocks-to-a-Mixin"><a href="#传递内容块到混入-Passing-Content-Blocks-to-a-Mixin" class="headerlink" title="传递内容块到混入(Passing Content Blocks to a Mixin)"></a>传递内容块到混入(Passing Content Blocks to a Mixin)</h3><p>样式内容块可以传递到混入（mixin）包含样式的位置。样式内容块将出现在混入内的任何 <code>@content</code> 指令的位置。这使得可以定义抽象 关联到选择器和指令的解析。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@mixin apply-to-ie6-only &#123;</span><br><span class="line">  * html &#123;</span><br><span class="line">    @content;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@include apply-to-ie6-only &#123;</span><br><span class="line">  #logo &#123;</span><br><span class="line">    background-image: url(/logo.gif);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* html #logo &#123;</span><br><span class="line">  background-image: url(/logo.gif);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的混入（mixin）可以在<code>.sass</code> 简写语法（<code>@mixin</code> 可以用 <code>=</code> 表示，而 <code>@include</code> 可以用 <code>+</code> 表示）来完成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">=apply-to-ie6-only</span><br><span class="line">  * html</span><br><span class="line">    @content</span><br><span class="line"></span><br><span class="line">+apply-to-ie6-only</span><br><span class="line">  #logo</span><br><span class="line">    background-image: url(/logo.gif)</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 当<code>@content</code>指令指定多次或在一个循环中指定的时候，样式块将在每次调用中被复制并引用。</p>
+<h4 id="变量的作用域和内容块（Variable-Scope-and-Content-Blocks）"><a href="#变量的作用域和内容块（Variable-Scope-and-Content-Blocks）" class="headerlink" title="变量的作用域和内容块（Variable Scope and Content Blocks）"></a>变量的作用域和内容块（Variable Scope and Content Blocks）</h4><p>传递给混入（mixin）的内容块在其被定义的作用域中进行运算，而不是混入（mixin）的作用域。这意味着混入（mixin）的局部变量<strong>不能</strong>传递给样式块使用，并且变量将解析为全局值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$color: white;</span><br><span class="line">    @mixin colors($color: blue) &#123;</span><br><span class="line">  background-color: $color;</span><br><span class="line">      @content;</span><br><span class="line">      border-color: $color;</span><br><span class="line">&#125;</span><br><span class="line">.colors &#123;</span><br><span class="line">  @include colors &#123; color: $color; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.colors &#123;</span><br><span class="line">  background-color: blue;</span><br><span class="line">  color: white;</span><br><span class="line">  border-color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，这清楚地表明，变量和传递到块中使用的混入，指向块定义的周围其他样式。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#sidebar &#123;</span><br><span class="line">  $sidebar-width: 300px;</span><br><span class="line">      width: $sidebar-width;</span><br><span class="line">  @include smartphone &#123;</span><br><span class="line">    width: $sidebar-width / 3;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -501,12 +506,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/24/create-react-app-tslint/">在create-react-app中搭配tslint</a></p>
+  <p><span>本文标题:</span><a href="/2019/06/05/Mixins-Directives/">混入指令 (Mixin Directives)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 yangpu 的个人博客">yangpu</a></p>
-  <p><span>发布时间:</span>2019年04月24日 - 18:08</p>
-  <p><span>最后更新:</span>2019年04月24日 - 18:08</p>
-  <p><span>原始链接:</span><a href="/2019/04/24/create-react-app-tslint/" title="在create-react-app中搭配tslint">https://mongofeng.github.io/2019/04/24/create-react-app-tslint/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://mongofeng.github.io/2019/04/24/create-react-app-tslint/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年06月05日 - 15:28</p>
+  <p><span>最后更新:</span>2019年06月05日 - 15:28</p>
+  <p><span>原始链接:</span><a href="/2019/06/05/Mixins-Directives/" title="混入指令 (Mixin Directives)">https://mongofeng.github.io/2019/06/05/Mixins-Directives/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://mongofeng.github.io/2019/06/05/Mixins-Directives/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -539,9 +544,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/create-react-app/" rel="tag"><i class="fa fa-tag"></i> create-react-app</a>
-          
-            <a href="/tags/tslint/" rel="tag"><i class="fa fa-tag"></i> tslint</a>
+            <a href="/tags/sass/" rel="tag"><i class="fa fa-tag"></i> sass</a>
           
         </div>
       
@@ -554,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/22/mongodb/" rel="next" title="mongod">
-                <i class="fa fa-chevron-left"></i> mongod
+              <a href="/2019/06/05/SassScript/" rel="next" title="SassScript">
+                <i class="fa fa-chevron-left"></i> SassScript
               </a>
             
           </div>
@@ -564,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/23/memory/" rel="prev" title="4类 JavaScript 内存泄漏及如何避免">
-                4类 JavaScript 内存泄漏及如何避免 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/05/Function-Directives/" rel="prev" title="函数指令 (Function Directives)">
+                函数指令 (Function Directives) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -716,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建React和TypeScript项目"><span class="nav-number">1.</span> <span class="nav-text">创建React和TypeScript项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建我们的项目"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建我们的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加TSLint"><span class="nav-number">1.0.2.</span> <span class="nav-text">添加TSLint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加TSLint-Visual-Studio代码扩展"><span class="nav-number">1.0.3.</span> <span class="nav-text">添加TSLint Visual Studio代码扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复App-tsx中的linting错误"><span class="nav-number">1.0.4.</span> <span class="nav-text">修复App.tsx中的linting错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加自动格式"><span class="nav-number">1.0.5.</span> <span class="nav-text">添加自动格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加更漂亮的Visual-Studio代码扩展"><span class="nav-number">1.0.6.</span> <span class="nav-text">添加更漂亮的Visual Studio代码扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行应用程序"><span class="nav-number">1.0.7.</span> <span class="nav-text">运行应用程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">1.0.8.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义一个混入-mixin-mixin（Defining-a-Mixin-mixin）"><span class="nav-number">1.</span> <span class="nav-text">定义一个混入(mixin):@mixin（Defining a Mixin: @mixin）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用混合样式-include-（Including-a-Mixin-include）"><span class="nav-number">2.</span> <span class="nav-text">引用混合样式:@include （Including a Mixin: @include）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-Arguments"><span class="nav-number">3.</span> <span class="nav-text">参数 (Arguments)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键字参数-Keyword-Arguments"><span class="nav-number">3.1.</span> <span class="nav-text">关键字参数 (Keyword Arguments)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可变参数-Variable-Arguments"><span class="nav-number">3.2.</span> <span class="nav-text">可变参数 (Variable Arguments)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递内容块到混入-Passing-Content-Blocks-to-a-Mixin"><span class="nav-number">4.</span> <span class="nav-text">传递内容块到混入(Passing Content Blocks to a Mixin)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的作用域和内容块（Variable-Scope-and-Content-Blocks）"><span class="nav-number">4.1.</span> <span class="nav-text">变量的作用域和内容块（Variable Scope and Content Blocks）</span></a></li></ol></li></ol></div>
             
 
           </div>
